@@ -10,7 +10,7 @@ let products = [];
 // Product catalog and rich WhatsApp preview endpoint
 const PRODUCTS_DATA_URL = "./products.json";
 // Replace this after deploying the Cloudflare Worker.
-const PRODUCT_PREVIEW_URL = "https://YOUR-WORKER.workers.dev/product";
+const PRODUCT_PREVIEW_URL = "https://whatsapp-order-worker.fluffydelightsfoods.workers.dev/product";
 
 ;
 
