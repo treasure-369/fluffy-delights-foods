@@ -46,7 +46,7 @@ function renderProducts(list) {
     card.onclick = () => {
       const productUrl = `${PRODUCT_PREVIEW_URL}?id=${encodeURIComponent(p.id)}`;
       const message = encodeURIComponent(
-        `Hello 🎉\n\n*FLUFFY DELIGHTS FOODS!*\n\nI'm interested in the\n*${p.name}*\n\n*Description:* ${p.desc}\n\n*Price:* ${p.price}\n\n${productUrl}\n\nCan you tell me more or confirm availability?`
+        `${productUrl}\n\nHello 🎉\n\n*FLUFFY DELIGHTS FOODS!*\n\nI'm interested in the\n*${p.name}*\n\n*Description:* ${p.desc}\n\n*Price:* ${p.price}\n\nCan you tell me more or confirm availability?`
       );
       window.open(`https://wa.me/${whatsappNumber}?text=${message}`, "_blank");
     };
