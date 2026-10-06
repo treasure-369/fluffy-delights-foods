@@ -1,6 +1,13 @@
 // WhatsApp number (without + or spaces)
 const whatsappNumber = "2349078215644";
 
+// Website URL
+const siteUrl = "https://treasure-369.github.io/fluffy-delights-foods/";
+
+function getProductImageUrl(imagePath) {
+  return new URL(imagePath, siteUrl).href;
+}
+
 /* ====== PRODUCT DATA ====== 
 Last Updated: August 18, 2026
 ⚠️ VERIFY ALL PRICES BEFORE DEPLOYMENT ⚠️ */
@@ -694,11 +701,32 @@ function renderProducts(list) {
     `;
 
     card.onclick = () => {
-      const message = encodeURIComponent(
-        `Hello 🎉 \n\n*FLUFFY DELIGHTS FOODS!* \n\nI'm interested in the\n*${p.name}* \n\n${p.whatsappImage || p.image}\n\n*Description:* ${p.desc}\n\n*Price:* ${p.price}\n\nCan you tell me more or confirm availability?`
-      );
-      window.open(`https://wa.me/${whatsappNumber}?text=${message}`, "_blank");
-    };
+  const imageUrl = getProductImageUrl(p.image);
+
+  const message = encodeURIComponent(
+`Hello 🎉
+
+*FLUFFY DELIGHTS FOODS!*
+
+I'm interested in:
+*${p.name}*
+
+*Description:*
+${p.desc}
+
+*Price:* ${p.price}
+
+*Product Image:*
+${imageUrl}
+
+Can you tell me more or confirm availability?`
+  );
+
+  window.open(
+    `https://wa.me/${whatsappNumber}?text=${message}`,
+    "_blank"
+  );
+};
 
     productsList.appendChild(card);
   });
